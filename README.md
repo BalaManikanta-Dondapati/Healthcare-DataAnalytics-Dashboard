@@ -53,9 +53,9 @@ Healthcare-DataAnalytics-Dashboard/
 │   ├── Hospital_Analytics_Dashboard.pdf
 │   └── Hospital_Analytics_Dashboard.png
 │
-└── .gitignore
+├──.gitignore
 │
-└── README.md
+├── README.md
 │
 └── requirements.txt
 
