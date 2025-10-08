@@ -1,4 +1,5 @@
 🏥 NY Hospital Inpatient Analytics Dashboard — 2010
+
 📌 Project Overview
 
 This project analyzes New York State Hospital Inpatient Discharge Data (2010) to uncover insights about hospital utilization, patient demographics, treatment costs, and the relationship between severity of illness and healthcare expenses.
@@ -6,11 +7,16 @@ This project analyzes New York State Hospital Inpatient Discharge Data (2010) to
 Using Power BI for visualization and Python (Pandas) for preprocessing, we’ve built a fully interactive analytical dashboard that empowers healthcare administrators to identify high-cost diagnoses, track performance, and improve hospital efficiency.
 
 🧰 Tools & Technologies
-Stage	Tools Used
-Data Cleaning & Preprocessing	Python, Pandas
-Visualization	Power BI Desktop
-Environment	VS Code, Power BI Service
-Dataset Source	Kaggle: 2010 New York State Hospital Inpatient Discharge Data
+
+1.Stage	Tools Used
+
+2.Data Cleaning & Preprocessing	Python, Pandas
+
+3.Visualization	Power BI Desktop
+
+4.Environment	VS Code, Power BI Service
+
+5.Dataset Source	Kaggle: 2010 New York State Hospital Inpatient Discharge Data
 
 📊 Dataset Access
 Due to GitHub’s 100 MB file limit, the raw and cleaned datasets are hosted externally:
@@ -20,132 +26,162 @@ Due to GitHub’s 100 MB file limit, the raw and cleaned datasets are hosted ext
 - [📈 Power BI Dashboard (.pbix) File (Google Drive)](https://drive.google.com/file/d/15qGd3SM-eOkE-44HKRgBSgp1238Ry2fD/view?usp=sharing)
 
 
+
 📂 Folder Structure
 ```
 Healthcare-DataAnalytics-Dashboard/
 │
 ├── data/
 │   ├── raw/
-│   │   └── hospital-inpatient-discharges.csv
+│   │   └── hospital-inpatient-discharges.csv(Google Drive Link)
 │   └── processed/
-│       └── hospital_cleaned.csv
+│       └── hospital_cleaned.csv(Google Drive Link)
+│
+├── reports/figures/
+│   └── avg_charges_by_diagnosis.png
+│   └── avg_stay_by_severity.png
+│   └── distribution_total_charges.png
+│   └── emergency_vs_non_emergency.png
+│   └── top_diagnoses.png
 │
 ├── scripts/
+│   └── data_cleaning.py
+│   └── data_eda.py
 │   └── data_understanding.py
 │
 ├── visuals/
-│   ├── Hospital_Analytics_Dashboard.pbix
-│   └── NY_Hospital_Inpatient_Analytic.png
+│   ├── Hospital_Analytics_Dashboard.pdf
+│   └── Hospital_Analytics_Dashboard.png
 │
 └── README.md
+└── .gitignore
+└── requirements.txt
+
+
 ```
+
 
 🧹 Data Preprocessing Steps
 
-Performed in Python (VS Code)
+1.Performed in Python (VS Code)
 
-Loaded raw dataset using pandas.read_csv().
+2.Loaded raw dataset using pandas.read_csv().
 
-Handled missing values — replaced or dropped irrelevant records.
+3.Handled missing values — replaced or dropped irrelevant records.
 
-Removed redundant columns and standardized column names.
+4.Removed redundant columns and standardized column names.
 
-Converted data types (e.g., cost/charge columns → float).
+5.Converted data types (e.g., cost/charge columns → float).
 
-Saved cleaned dataset as data/processed/hospital_cleaned.csv.
+6.Saved cleaned dataset as data/processed/hospital_cleaned.csv.
+
 
 ✅ Final dataset shape: 2,597,840 rows × 33 columns
 
+
 📊 Dashboard Design in Power BI
+
 🧱 Step 1: Import & Data Model
 
-Imported hospital_cleaned.csv
+-->Imported hospital_cleaned.csv
 
-Verified data types, created relationships where needed.
+-->Verified data types, created relationships where needed.
 
 🧱 Step 2: Create Calculated Fields
 
-Used DAX to create:
+--.Used DAX to create:
 
 Total Charges (bn) = SUM('hospital_cleaned'[Total Charges]) / 1e9
+
 Total Costs (bn) = SUM('hospital_cleaned'[Total Costs]) / 1e9
+
 Average Stay = AVERAGE('hospital_cleaned'[Length of Stay])
 
 🧱 Step 3: Build Visuals
-No	Visualization	Chart Type	Description
-1	KPI Cards	Card	Count of Facility IDs, Total Charges, Total Costs, Avg Length of Stay
-2	Top Diagnoses by Facility Count	Column	Most common diagnosis categories
-3	Average Charges by Diagnosis	Funnel	Most expensive treatments
-4	Avg Charges by Severity	Bar	Cost variation by illness severity
-5	Charges vs Length of Stay	Combo	Correlation between charges & stay duration
-6	Emergency vs Non-Emergency	Pie	Cost distribution by emergency indicator
-7	Age Group & Gender Distribution	Area	Admission trends by age & gender
-8	Race-wise Distribution	Donut	Patient demographics by race
-9	Charges & Costs by Facility	100% Stacked Bar	Hospital-wise cost comparison
+--.No	Visualization	Chart Type	Description
+1.KPI Cards	Card	Count of Facility IDs, Total Charges, Total Costs, Avg Length of Stay
+
+2.Top Diagnoses by Facility Count	Column	Most common diagnosis categories
+
+3.Average Charges by Diagnosis	Funnel	Most expensive treatments
+
+4.Avg Charges by Severity	Bar	Cost variation by illness severity
+
+5.Charges vs Length of Stay	Combo	Correlation between charges & stay duration
+
+6.Emergency vs Non-Emergency	Pie	Cost distribution by emergency indicator
+
+7.Age Group & Gender Distribution	Area	Admission trends by age & gender
+
+8.Race-wise Distribution	Donut	Patient demographics by race
+
+9.Charges & Costs by Facility	100% Stacked Bar	Hospital-wise cost comparison
+
 🎛️ Step 4: Interactivity
 
-Added slicers for:
+-->Added slicers for:
 
-Discharge Year
+1.Discharge Year
 
-Facility Name
+2.Facility Name
 
-Severity of Illness
+3.Severity of Illness
 
-Emergency Department Indicator
+4.Emergency Department Indicator
 
 Each slicer dynamically filters all visuals across the report.
+
 Example: selecting a hospital updates all KPIs and charts instantly.
 
 🎨 Step 5: Layout & Styling
 
-Title: NY Hospital Inpatient Analytics Dashboard — 2010
+-->Title: NY Hospital Inpatient Analytics Dashboard — 2010
 
-KPIs placed at the top for summary view
+1.KPIs placed at the top for summary view
 
-Organized visuals into sections:
+2.Organized visuals into sections:
 
-Costs Overview
+3.Costs Overview
 
-Diagnosis Analysis
+4.Diagnosis Analysis
 
-Severity & Stay Insights
+5.Severity & Stay Insights
 
-Demographic Breakdown
+6.Demographic Breakdown
 
-Facility Comparison
+7.Facility Comparison
 
-Consistent colors:
+-->Consistent colors:
 
 🟥 Emergency cases
 
 🟦 Non-Emergency cases
 
-Rounded card edges, subtle shadows for modern UI look.
+-->Rounded card edges, subtle shadows for modern UI look.
 
 💡 Key Insights
 
-Extreme illness severity drives the highest average charges and longest hospital stays.
+-->Extreme illness severity drives the highest average charges and longest hospital stays.
 
-Emergency cases account for nearly 50% of total costs.
+-->Emergency cases account for nearly 50% of total costs.
 
-Age group 50–69 dominates hospital admissions.
+-->Age group 50–69 dominates hospital admissions.
 
-White race group forms the majority of admitted patients.
+-->White race group forms the majority of admitted patients.
 
 A few hospitals contribute disproportionately to total expenditures — scope for cost optimization.
 
 🚀 How to Run
 
-Open Power BI Desktop.
+1.Open Power BI Desktop.
 
-Load hospital_cleaned.csv.
+2.Load hospital_cleaned.csv.
 
-Open Hospital_Analytics_Dashboard.pbix.
+3.Open Hospital_Analytics_Dashboard.pbix.
 
-Refresh the dataset to sync visuals.
+4.Refresh the dataset to sync visuals.
 
-Export to .pdf or .png for sharing or upload to GitHub Pages.
+5.Export to .pdf or .png for sharing or upload to GitHub Pages.
 
 📸 Dashboard Preview
 
